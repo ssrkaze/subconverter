@@ -1495,7 +1495,7 @@ void explodeClash(Node yamlnode, std::vector<Proxy> &nodes)
             bool vless_udp;
             singleproxy["udp"] >> vless_udp;
 
-            vlessConstruct(node, group, ps, server, port, type, id, aid, net, "auto", flow, mode, path, host, "", tls, pbk, sid, fp, sni, alpnList, packet_encoding, udp, underlying_proxy);
+            vlessConstruct(node, group, ps, server, port, type, id, aid, net, "auto", flow, mode, path, host, "", tls, pbk, sid, fp, sni, alpnList, packet_encoding, udp, tfo, scv, underlying_proxy);
             break;
         case "tuic"_hash:
             group = TUIC_DEFAULT_GROUP;
