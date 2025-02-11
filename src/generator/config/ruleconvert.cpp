@@ -232,7 +232,8 @@ std::string rulesetToClashStr(YAML::Node &base_rule, std::vector<RulesetContent>
             if(startsWith(strLine, "FINAL"))
                 strLine.replace(0, 5, "MATCH");
             strLine = transformRuleToCommon(temp, strLine, rule_group);
-            if (!startsWith(strLine, "AND") && !startsWith(strLine, "OR") && !startsWith(strLine, "NOT") && count_least(strLine, ',', 3))
+            if (!startsWith(strLine, "AND") && !startsWith(strLine, "OR") && !startsWith(strLine, "NOT") &&
+                !startsWith(strLine, "IP-CIDR") && !startsWith(strLine, "IP-CIDR6") && count_least(strLine, ',', 3))
                 strLine = regReplace(strLine, rule_match_regex, "$1$3$2");
             output_content += "  - " + strLine + "\n";
             total_rules++;
@@ -260,7 +261,8 @@ std::string rulesetToClashStr(YAML::Node &base_rule, std::vector<RulesetContent>
                 strLine = trimWhitespace(strLine);
             }
             strLine = transformRuleToCommon(temp, strLine, rule_group);
-            if (!startsWith(strLine, "AND") && !startsWith(strLine, "OR") && !startsWith(strLine, "NOT") && count_least(strLine, ',', 3))
+            if (!startsWith(strLine, "AND") && !startsWith(strLine, "OR") && !startsWith(strLine, "NOT") &&
+                !startsWith(strLine, "IP-CIDR") && !startsWith(strLine, "IP-CIDR6") && count_least(strLine, ',', 3))
                 strLine = regReplace(strLine, rule_match_regex, "$1$3$2");
             output_content += "  - " + strLine + "\n";
             total_rules++;
